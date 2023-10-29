@@ -1,3 +1,16 @@
 {
-  "Login": "ログイン"
+  "Login": "ログイン",
+  "Logout": "ログアウト",
+  "Post": "投稿",
+  "User": "ユーザー",
+  "Dashboard": "ダッシュボード",
+  "Settings": "設定",
+  "PostChart": "新譜投稿",
+  "PostNote": "ノート投稿",
+  "CreatedAt": "作成日時",
+  "Username": "ユーザー名",
+  "Role": "権限",
+  "ViolationPoints": "違反点数",
+  "TOUntil": "TO期限",
+  "Banned": "BAN"
 }

@@ -46,13 +46,15 @@ export const getProfile = async () => {
     .from('users')
     .select()
     .eq('id', userdata?.id)
+  const user = userData || []
+  const role = user[0].role
   return {
     id: userdata?.id,
     username: userdata?.user_metadata.full_name,
     globalname: userdata?.user_metadata.custom_claims.global_name,
     avatar: userdata?.user_metadata.avatar_url,
     email: userdata?.email,
-    role: (userData?.length || 0) > 0 ? (userData ? userData[0].role : {}) : {},
+    role: role,
   } as Profile
 }
 
@@ -62,44 +64,13 @@ export type Profile = {
   globalname: string
   avatar: string
   email: string
+  role: Array<any>
 }
 
-export const updateRole = async (id: UUID, roles: Role[]) => {
-  // create object
-  const { data, error } = await supabase
-    .from('users')
-    .update({
-      role: { roles: roles },
-    })
-    .eq('id', id)
+export const getUserList = async () => {
+  const { data, error } = await supabase.from('users').select()
   if (error) {
     return null
   }
   return data
-}
-
-export const deleteRole = async (id: UUID, roleName: string) => {
-  const { data, error } = await supabase.from('users').select('role').eq('id', id)
-  if (data === null || error) {
-    return null
-  }
-  const roles = data[0].role.roles
-  const index = roles.findIndex((role: Role) => role.name === roleName)
-  roles.splice(index, 1)
-  const { data: updateData, error: updateError } = await supabase
-    .from('users')
-    .update({
-      role: { roles: roles },
-    })
-    .eq('id', id)
-  if (updateError) {
-    return null
-  }
-}
-
-type Role = {
-  name: string
-  color: string
-  granted_at: Date
-  permissions: string[]
 }

@@ -4,6 +4,9 @@ EN | [JP](README.JP.md)
 ![](https://flat.badgen.net/github/last-commit/Kokohachi/Fukinoto3)
 ![](https://flat.badgen.net/github/stars/Kokohachi/Fukinoto3)
 
+> [!Warning]
+> Work in progress.
+
 # Fukinoto🝲
 
 [Fukinoto🝲](https://fukinoto.vercel.app/) is a Custom Sekai Chart Platform for [Sonolus](https://sonolus.com/) and [紫式部サーバー譜面企画部](https://events.potato-salad.live/), using Next.js (TypeScript), ChakraUI, Supabase and HuggingFace.
